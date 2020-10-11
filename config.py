@@ -1,0 +1,36 @@
+conf = dict()
+conf['citeulike'] = {
+    "output_dir": "results/citeulike",
+    "train_file": "data/citeulike/train.txt",
+    "test_file": "data/citeulike/test.txt",
+    "CUDA_VISIBLE_DEVICES": "3",
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "dis_lambda": 0.05,
+    "dis_sample_num": 5,
+    "dis_emb_dim": 32,
+    "gen_sample_num_item": 64,
+    "gen_sample_num_user": 64,
+    "gen_emb_dim": 64,
+    "T": 0.5,
+    "lambda_x": 0.1,
+    "lambda_y": 1.,
+}
+
+conf['gowalla'] = {
+    "output_dir": "results/gowalla",
+    "train_file": "data/gowalla/train.txt",
+    "test_file": "data/gowalla/test.txt",
+    "CUDA_VISIBLE_DEVICES": "1",
+    "batch_size": 512,
+    "learning_rate": 0.001,
+    "dis_emb_dim": 32,
+    "dis_lambda": 0.01,
+    "dis_sample_num": 5,
+    "gen_sample_num_item": 64,
+    "gen_sample_num_user": 64,
+    "gen_emb_dim": 64,
+    "T": 0.5,
+    "lambda_x": 0.1,
+    "lambda_y": 1.,
+}
