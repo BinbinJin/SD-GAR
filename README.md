@@ -1,7 +1,7 @@
 # SD-GAR
 This repository hosts the experimental code for NeurIPS 2020 paper "Sampling-Decomposable Generative Adversarial Recommender".
 
-##Requirements
+## Requirements
 
 The code is based on Tensorflow-2.1.0.
 
@@ -56,7 +56,7 @@ In our experiments, they are always set as the same value.
 'T', 'lambda_x' and 'lambda_y' are hyperparameters of temperature. Specifically, 'T' is the temperature in the objective function in the discriminator 
 while 'lambda_x' and 'lambda_y' are the temperature when optimizing the generator.
 
-###training
+### training
 After set up the config, run:
 ```angular2
     python main.py citeulike
