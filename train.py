@@ -211,6 +211,7 @@ def train(config):
     best, best_gen = 0., 0.
     global Train_d_cnt, Gen_data_for_d_time, Train_d_time
     global Train_g_cnt, Gen_data_for_g_time, Train_g_time
+    mretic_name = ['P@3', 'P@5', 'P@10', 'P@50', 'NDCG@3', 'NDCG@5', 'NDCG@10', 'NDCG@50', 'MRR']
     for epoch in range(76):
         # train discriminator
         if epoch > 0:
@@ -253,11 +254,13 @@ def train(config):
             if epoch % 5 == 0:
                 result = eval(sess, discriminator, user_pos_train, user_pos_test)
                 curr_time = get_current_time()
+                buf = "\t%s; metrics:    \t%s" % (curr_time, '\t'.join(["%7s" % x for x in mretic_name]))
+                output_to_file(buf, train_log)
                 buf = "\t%s; performance:\t%s" % (curr_time, '\t'.join(["%.5f" % x for x in result]))
                 output_to_file(buf, train_log)
                 ndcg_50 = result[7]
                 if ndcg_50 > best:
-                    buf = 'best ndcg@50: %s' % '\t'.join(map(str, result))
+                    buf = '\tbest ndcg@50, saving the current model'
                     output_to_file(buf, train_log)
                     best = ndcg_50
                     saver.save(sess, model_path)
