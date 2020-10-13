@@ -11,7 +11,6 @@ import json
 import pickle
 import multiprocessing
 
-sys.path.insert(0, '../')
 from discriminator import DIS
 from generator import GEN
 from utils import load_data, get_current_time, output_to_file
