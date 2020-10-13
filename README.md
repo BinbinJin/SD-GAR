@@ -44,20 +44,29 @@ conf['citeulike'] = {
 ```
 
 Prefix 'dis' denotes the corresponding hyperparameter belong to the discriminator. 
-Specifically, 'dis_lambda' denotes the coefficient of L2 regularization.
-'dis_sample_num' denotes the number of negative samples when optimizing the discriminator. 
-'dis_emb_dim' denotes the dimension of the user/item embeddings.
+Specifically, 
+* 'dis_lambda' denotes the coefficient of L2 regularization.
+* 'dis_sample_num' denotes the number of negative samples when optimizing the discriminator. 
+* 'dis_emb_dim' denotes the dimension of the user/item embeddings.
 
 Prefix 'gen' denotes the corresponding  hyperparameter belong to the generator.
-'gen_sample_num_item' and 'gen_sample_num_user' denote the number of samples when optimizing the user and item embeddings in the generator.
+* 'gen_sample_num_item' and 'gen_sample_num_user' denote the number of samples when optimizing the user and item embeddings in the generator.
 In our experiments, they are always set as the same value.
-'gen_emb_dim' denotes the dimension of the user/item embeddings.
+* 'gen_emb_dim' denotes the dimension of the user/item embeddings.
 
-'T', 'lambda_x' and 'lambda_y' are hyperparameters of temperature. Specifically, 'T' is the temperature in the objective function in the discriminator 
-while 'lambda_x' and 'lambda_y' are the temperature when optimizing the generator.
+'T', 'lambda_x' and 'lambda_y' are hyperparameters of temperature. Specifically, 
+* 'T' is the temperature in the objective function of the discriminator 
+* 'lambda_x' and 'lambda_y' are the temperature when optimizing the generator.
 
 ### training
 After set up the config, run:
 ```angular2
-    python main.py citeulike
+python train.py citeulike
+```
+
+## Testing the model
+After training the model, the best model is saved in the '$output_dir$/model' where $output_dir$ is defined in the config.
+When rerunning the pre-trained model, run:
+```angular2
+python test.py citeulike 
 ```
