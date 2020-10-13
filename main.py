@@ -297,15 +297,15 @@ def train(config):
     train_log.close()
 
 
-def run():
+def run(conf_name):
     pass
     from config import conf
-    # conf_name = 'citeulike'
-    conf_name = 'gowalla'
+    if conf_name not in conf:
+        raise Exception('config name not in the config.py')
     config = conf[conf_name]
     train(config)
 
 
 if __name__ == '__main__':
     pass
-    run()
+    run(sys.argv[1])
