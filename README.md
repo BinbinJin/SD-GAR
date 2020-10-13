@@ -43,13 +43,13 @@ conf['citeulike'] = {
 }
 ```
 
-Prefix 'dis' denotes the corresponding hyperparameter belong to the discriminator. 
+Prefix 'dis' denotes the related hyperparameters that belong to the discriminator. 
 Specifically, 
 * 'dis_lambda' denotes the coefficient of L2 regularization.
 * 'dis_sample_num' denotes the number of negative samples when optimizing the discriminator. 
 * 'dis_emb_dim' denotes the dimension of the user/item embeddings.
 
-Prefix 'gen' denotes the corresponding  hyperparameter belong to the generator.
+Prefix 'gen' denotes the related  hyperparameters that belong to the generator.
 * 'gen_sample_num_item' and 'gen_sample_num_user' denote the number of samples when optimizing the user and item embeddings in the generator.
 In our experiments, they are always set as the same value.
 * 'gen_emb_dim' denotes the dimension of the user/item embeddings.
